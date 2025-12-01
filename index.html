@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FocusMate — Study Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <h1>FocusMate</h1>
+      <div class="controls">
+        <button id="exportBtn" title="Export data">Export</button>
+        <button id="importBtn" title="Import data">Import</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="card new-entry">
+        <h2>New Session</h2>
+        <div class="row">
+          <input id="subjectInput" placeholder="Subject (Maths, Chemistry...)" />
+          <input id="dateInput" type="date" />
+        </div>
+        <div class="row">
+          <input id="durationInput" type="number" min="1" placeholder="Minutes focused" />
+          <button id="startTimer">Start 25-min Timer</button>
+        </div>
+        <textarea id="remarks" placeholder="Write short remarks about this session..."></textarea>
+        <div class="row actions">
+          <button id="addEntry">Add Entry</button>
+        </div>
+      </section>
+
+      <section class="card graph">
+        <h2>Monthly Performance</h2>
+        <canvas id="performanceChart"></canvas>
+        <div class="legend"><span id="totalTime">Total: 0 min</span> • <span id="sessionsCount">Sessions: 0</span></div>
+      </section>
+
+      <section class="card entries">
+        <h2>Recent Entries</h2>
+        <div id="entriesList"></div>
+      </section>
+
+      <section class="card ai">
+        <h2>AI Study Assistant</h2>
+        <div id="aiOutput">Ask the assistant for study tips or press "Analyze progress".</div>
+        <div class="row">
+          <input id="aiInput" placeholder="Ask: e.g. 'How can I improve focus?'" />
+          <button id="askAi">Ask</button>
+          <button id="analyze">Analyze progress</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Made with ❤️ — Offline-first. Your data stays in your browser.</small>
+    </footer>
+  </div>
+
+  <template id="entryTpl">
+    <div class="entry">
+      <div class="left">
+        <strong class="subj"></strong>
+        <div class="meta"><span class="date"></span> • <span class="time">0 min</span></div>
+      </div>
+      <div class="right">
+        <div class="remark"></div>
+        <div class="entry-actions">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

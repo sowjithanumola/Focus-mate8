@@ -1,0 +1,40 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#7c3aed;
+  --glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Arial;
+  background: linear-gradient(180deg,#071026 0%, #071e2a 60%);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+}
+.app{max-width:1000px;margin:0 auto}
+.top{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;margin-bottom:18px}
+.top h1{margin:0;font-weight:800;letter-spacing:-0.5px}
+.controls button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+main{display:grid;grid-template-columns:1fr 420px;gap:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:16px;box-shadow: 0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+.new-entry input, .new-entry textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:8px}
+.row{display:flex;gap:8px}
+.row input[type="number"]{width:100%}
+.row .actions{justify-content:flex-end}
+button{background:linear-gradient(90deg,var(--accent),#5b21b6);border:none;padding:10px 14px;border-radius:10px;color:white;cursor:pointer;font-weight:600}
+.graph{height:320px}
+.entries{max-height:360px;overflow:auto}
+.entry{display:flex;justify-content:space-between;padding:10px;border-radius:10px;margin-bottom:8px;background:var(--glass);align-items:flex-start}
+.entry .left{max-width:55%}
+.entry .remark{color:var(--muted);margin-top:8px}
+.entry .meta{color:var(--muted);font-size:13px}
+.entry-actions button{background:transparent;border:none;color:var(--muted);margin-left:6px;cursor:pointer}
+.ai #aiOutput{min-height:80px;padding:10px;background:rgba(255,255,255,0.02);border-radius:8px;color:var(--muted);margin-bottom:8px}
+.legend{margin-top:8px;color:var(--muted);font-size:13px}
+footer{margin-top:18px;text-align:center;color:var(--muted)}
+@media (max-width:900px){main{grid-template-columns:1fr;}}
